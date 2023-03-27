@@ -1,0 +1,38 @@
+.cart > div > img {
+  width: 286px;
+  height: 286px;
+  border-radius: 8px;
+  margin: 8px;
+}
+
+.cart {
+  width: 300px;
+  height: 510px;
+  border: 1px solid gray;
+  text-align: center;
+  margin: 26px;
+  position: relative;
+  border-radius: 8px;
+}
+
+.info {
+  text-align: left;
+  margin-left: 10px;
+}
+.info > h4,
+p {
+  margin-bottom: 10px;
+}
+.btn-cart {
+  background: #ffe0b3;
+  border: 1px solid #95a0a7;
+  border-radius: 0px 0px 8px 8px;
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.btn-cart:hover {
+  background-color: orange;
+}
