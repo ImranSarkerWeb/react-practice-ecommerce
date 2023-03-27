@@ -16,18 +16,12 @@ const Body = () => {
     setCartItems(newCart);
   };
 
-  const totalItemPrice = (arrOfitem) => {
-    const price = arrOfitem
-      .map((item) => item.price)
-      .reduce((accumulator, currentValue) => {
-        return accumulator + currentValue;
-      }, 0);
-    return price;
-  };
-  const [totalPrice, setTotalPrice] = useState(0);
-  useEffect(() => {
-    setTotalPrice(totalItemPrice(cartItems));
-  }, [cartItems]);
+  const price = cartItems
+    .map((item) => item.price)
+    .reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }, 0);
+
   return (
     <main>
       <section>
@@ -43,7 +37,7 @@ const Body = () => {
         <div className="order-summery">
           Order summery
           <p>Selected Items: {cartItems.length}</p>
-          <p>Total Price: ${totalPrice}</p>
+          <p>Total Price: ${price}</p>
         </div>
       </section>
     </main>
