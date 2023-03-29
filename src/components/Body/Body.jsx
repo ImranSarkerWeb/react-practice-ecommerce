@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { addToDb, getShoppingCart } from "../../utilities/fakedb";
+import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Body.css";
 
 const Body = () => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+
   useEffect(() => {
     fetch("products.json")
       .then((res) => res.json())
@@ -12,15 +15,10 @@ const Body = () => {
   }, []);
 
   const addToCart = (product) => {
+    addToDb(product.id);
     const newCart = [...cartItems, product];
     setCartItems(newCart);
   };
-
-  const price = cartItems
-    .map((item) => item.price)
-    .reduce((accumulator, currentValue) => {
-      return accumulator + currentValue;
-    }, 0);
 
   return (
     <main>
@@ -34,10 +32,9 @@ const Body = () => {
             ></Product>
           ))}
         </div>
-        <div className="order-summery">
+        <div>
           Order summery
-          <p>Selected Items: {cartItems.length}</p>
-          <p>Total Price: ${price}</p>
+          <Cart items={cartItems}></Cart>
         </div>
       </section>
     </main>
