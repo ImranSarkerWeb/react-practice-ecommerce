@@ -29,3 +29,6 @@
   background-color: lightpink;
   border: none;
 }
+.delet-btn:hover {
+  background-color: rgb(247, 201, 208);
+}
