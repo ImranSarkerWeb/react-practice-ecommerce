@@ -9,6 +9,7 @@ import Body from "./components/Body/Body";
 import Orders from "./components/Orders/Orders";
 import Inventory from "./components/Inventory/Inventory";
 import Login from "./components/Login/Login";
+import cartProductsLoader from "./components/Loader/cartProductLoader";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: "order",
         element: <Orders></Orders>,
+        loader: cartProductsLoader,
       },
       {
         path: "manage-inventory",
