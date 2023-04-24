@@ -13,3 +13,7 @@
   list-style-type: none;
   margin-right: 30px;
 }
+.tab a {
+  color: #fff;
+  text-decoration: none;
+}
