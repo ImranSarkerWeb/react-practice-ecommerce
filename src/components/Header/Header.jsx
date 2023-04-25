@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../providers/ContextProviders";
 const Header = () => {
   const { user, logOut } = useContext(UserContext);
-  const handleSignOut = () => {};
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.error(error.message);
+      });
+  };
   return (
     <nav className="header">
       <div>
@@ -19,7 +25,8 @@ const Header = () => {
         <Link to="login">Login</Link>
         {user && (
           <>
-            Welcome <button onClick={handleSignOut}>Sign Out</button>
+            Welcome {user.email}{" "}
+            <button onClick={handleSignOut}>Sign Out</button>
           </>
         )}
       </div>
