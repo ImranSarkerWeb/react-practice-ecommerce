@@ -60,3 +60,7 @@
   text-decoration: none;
   color: #dcb273;
 }
+.text-error {
+  margin-left: 40px;
+  color: rgb(212, 81, 81);
+}
