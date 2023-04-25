@@ -4,7 +4,8 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import { UserContext } from "../providers/ContextProviders";
 const Header = () => {
-  const { user } = useContext(UserContext);
+  const { user, logOut } = useContext(UserContext);
+  const handleSignOut = () => {};
   return (
     <nav className="header">
       <div>
@@ -16,7 +17,11 @@ const Header = () => {
         <Link to="manage-inventory">Inventory</Link>
         <Link to="signUp">Sign Up</Link>
         <Link to="login">Login</Link>
-        {user && <>Welcome</>}
+        {user && (
+          <>
+            Welcome <button onClick={handleSignOut}>Sign Out</button>
+          </>
+        )}
       </div>
     </nav>
   );
