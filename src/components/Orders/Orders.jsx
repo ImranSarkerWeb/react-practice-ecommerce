@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Cart from "../Cart/Cart";
 import "./Orders.css";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ReviewItem from "../ReviewItem/ReviewItem";
 import { deleteShoppingCart, removeFromDb } from "../../utilities/fakedb";
 
@@ -33,7 +33,9 @@ const Orders = () => {
       </div>
       <div>
         Order summery
-        <Cart items={cart} handleClearCart={handleClearCart}></Cart>
+        <Cart items={cart} handleClearCart={handleClearCart}>
+          <Link to="/checkout">Proceed Checkout</Link>
+        </Cart>
       </div>
     </div>
   );

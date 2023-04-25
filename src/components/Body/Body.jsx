@@ -7,6 +7,7 @@ import {
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Body.css";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [products, setProducts] = useState([]);
@@ -66,7 +67,9 @@ const Body = () => {
         </div>
         <div>
           Order summery
-          <Cart items={cartItems} handleClearCart={handleClearCart}></Cart>
+          <Cart items={cartItems} handleClearCart={handleClearCart}>
+            <Link to="/order"> Order Preview</Link>
+          </Cart>
         </div>
       </section>
     </main>
