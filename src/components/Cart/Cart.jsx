@@ -1,6 +1,9 @@
 import React from "react";
 import "./Cart.css";
-const Cart = ({ items }) => {
+import ClearCart from "../ClearCart/ClearCart";
+import OrderBtn from "../OrderBtn/OrderBtn";
+
+const Cart = ({ items, handleClearCart }) => {
   let total = 0;
   let shipping = 0;
   let quantity = 0;
@@ -17,6 +20,8 @@ const Cart = ({ items }) => {
       <p>Total Shipping: ${shipping}</p>
       <p>Tax: ${tax}</p>
       <h4>Grand Total: {+total + +shipping + +tax} $</h4>
+      <ClearCart handleClearCart={handleClearCart}></ClearCart>
+      <OrderBtn>Review Order</OrderBtn>
     </div>
   );
 };
