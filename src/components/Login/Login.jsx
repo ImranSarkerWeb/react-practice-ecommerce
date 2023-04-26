@@ -1,10 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { UserContext } from "../providers/ContextProviders";
+import "./Login.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEyeDropper,
+  faEye,
+  faEyeSlash,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const { signIn } = useContext(UserContext);
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
 
   const location = useLocation();
 
@@ -33,7 +42,19 @@ const Login = () => {
         </div>
         <div className="form-control">
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="" required />
+          <input
+            type={show ? "text" : "password"}
+            name="password"
+            id=""
+            required
+          />
+          <p className="show-pass" onClick={() => setShow(!show)}>
+            {show ? (
+              <FontAwesomeIcon icon={faEye} />
+            ) : (
+              <FontAwesomeIcon icon={faEyeSlash} />
+            )}
+          </p>
         </div>
         <input className="btn-submit" type="submit" value="Login" />
         <p className="message">
